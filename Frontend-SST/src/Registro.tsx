@@ -45,41 +45,41 @@ const Registro: React.FC = () => {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100" style={{ backgroundColor: "#f3f3f3" }}>
-      <div className="rounded-5 p-4 shadow-lg d-flex flex-column align-items-center" style={{ backgroundColor: "#ddd", width: "420px" }}>
-        <h4 className="text-center fw-bold mb-3">Crear cuenta</h4>
+      <div className="rounded-5 p-3 shadow-lg d-flex flex-column align-items-center" style={{ backgroundColor: "#ddd", width: "420px" }}>
+        <h4 className="text-center fw-bold mb-2">Crear cuenta</h4>
 
         <form onSubmit={registrar} className="w-100">
-          <div className="mb-2">
+          <div className="mb-1">
             <label className="form-label">Nombre</label>
             <input type="text" className="form-control rounded-pill" value={nombre} onChange={(e) => setNombre(e.target.value)} required />
           </div>
 
-          <div className="mb-2">
+          <div className="mb-1">
             <label className="form-label">Apellido</label>
             <input type="text" className="form-control rounded-pill" value={apellido} onChange={(e) => setApellido(e.target.value)} required />
           </div>
 
-          <div className="mb-2">
+          <div className="mb-1">
             <label className="form-label">Nombre de usuario</label>
             <input type="text" className="form-control rounded-pill" value={nombreUsuario} onChange={(e) => setNombreUsuario(e.target.value)} required />
           </div>
 
-          <div className="mb-2">
+          <div className="mb-1">
             <label className="form-label">Correo electrónico</label>
             <input type="email" className="form-control rounded-pill" value={correoElectronico} onChange={(e) => setCorreoElectronico(e.target.value)} required />
           </div>
 
-          <div className="mb-2">
+          <div className="mb-1">
             <label className="form-label">Cargo</label>
             <input type="text" className="form-control rounded-pill" value={cargo} onChange={(e) => setCargo(e.target.value)} required />
           </div>
 
-          <div className="mb-2">
+          <div className="mb-1">
             <label className="form-label">Contraseña</label>
             <input type="password" className="form-control rounded-pill" value={contrasena} onChange={(e) => setContrasena(e.target.value)} required />
           </div>
 
-          <div className="mb-3">
+          <div className="mb-2">
             <label className="form-label">Confirmar contraseña</label>
             <input type="password" className="form-control rounded-pill" value={confirmacion} onChange={(e) => setConfirmacion(e.target.value)} required />
           </div>
@@ -88,7 +88,7 @@ const Registro: React.FC = () => {
             Registrarse
           </button>
 
-          <div className="text-center mt-3">
+          <div className="text-center mt-2">
             <span className="text-muted">¿Ya tienes cuenta? </span>
             <span
               className="text-primary"
@@ -105,4 +105,3 @@ const Registro: React.FC = () => {
 };
 
 export default Registro;
-
