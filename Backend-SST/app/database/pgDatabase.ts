@@ -5,7 +5,7 @@ const pgDatabase = new Client({
     port: 5432,
     user: 'postgres',
     password: 'root',
-    database: 'SST',
+    database: 'SSTweb',
 });
 
 pgDatabase.connect();

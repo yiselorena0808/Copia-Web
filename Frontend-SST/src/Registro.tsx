@@ -20,7 +20,7 @@ const Registro: React.FC = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:1001/registro", {
+    const res = await fetch("http://localhost:7000/registro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

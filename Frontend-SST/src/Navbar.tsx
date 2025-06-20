@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -8,7 +8,6 @@ const Navba: React.FC = () => {
   const location = useLocation();
   const [nombre, setNombre] = useState("");
 
-  // Ocultar navbar en login y registro
   const ocultarNavbar = location.pathname === "/" || location.pathname === "/registro";
   if (ocultarNavbar) {
     return null;
@@ -29,7 +28,7 @@ const Navba: React.FC = () => {
 
   const logout = () => {
     localStorage.clear();
-    window.location.href = "/"; // Forzar recarga total al cerrar sesión
+    window.location.href = "/";
   };
 
   return (
@@ -48,30 +47,27 @@ const Navba: React.FC = () => {
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav")}>
           🏠 Inicio
         </Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill">📋 Lista de chequeo</Button>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/listas")}>
+          📋 Lista de chequeo
+        </Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill">📊 Informes</Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill">⚙️ Gestión EPP</Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill">🎯 Actividades Lúdicas</Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill">📚 Blog</Button>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/crearLudica")}
+        >🎯 Actividades Lúdicas</Button>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/blog")}
+        >📚 Blog</Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill">👤 Administrar usuarios</Button>
 
         <div className="mt-auto text-center">
-          <Button
-            variant="danger"
-            className="w-100 mt-2 rounded-pill"
-            onClick={logout}
-          >
+          <Button variant="danger" className="w-100 mt-2 rounded-pill" onClick={logout}>
             🔒 Cerrar sesión
           </Button>
         </div>
       </div>
 
-      {/* Top Bar */}
+      {/* Top Bar + Contenido Dinámico */}
       <div className="flex-grow-1 bg-light text-dark">
-        <div
-          className="d-flex justify-content-between align-items-center px-4 py-3 bg-black text-white shadow-sm"
-          style={{ height: "90px" }} // Altura aumentada
-        >
+        <div className="d-flex justify-content-between align-items-center px-4 py-3 bg-black text-white shadow-sm" style={{ height: "90px" }}>
           <h5 className="m-0 fw-bold">Panel principal</h5>
           <div className="d-flex align-items-center gap-3">
             {nombre && (
@@ -90,8 +86,7 @@ const Navba: React.FC = () => {
             />
           </div>
         </div>
-
-        {/* Aquí puedes renderizar el contenido principal o <Outlet /> */}
+        <Outlet />
       </div>
     </div>
   );
