@@ -5,10 +5,9 @@ const pgDatabase = new Client({
     port: 5432,
     user: 'postgres',
     password: 'root',
-    database: 'SSTweb',
+    database: 'Web',
 });
 
-pgDatabase.connect();
-
+pgDatabase.connect()
 export default pgDatabase;
 

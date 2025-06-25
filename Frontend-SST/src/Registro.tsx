@@ -37,7 +37,7 @@ const Registro: React.FC = () => {
 
     if (data.mensaje == 'Registro correcto') {
       alert("Registro exitoso");
-      navigate("/");
+      navigate("/nav");
     } else {
       alert("Error en el registro");
     }
@@ -93,7 +93,7 @@ const Registro: React.FC = () => {
             <span
               className="text-primary"
               style={{ cursor: "pointer", textDecoration: "underline" }}
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/nav")}
             >
               Inicia sesión
             </span>

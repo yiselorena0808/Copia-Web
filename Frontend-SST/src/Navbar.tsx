@@ -57,7 +57,9 @@ const Navba: React.FC = () => {
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/blog")}
         >📚 Blog</Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill">👤 Administrar usuarios</Button>
-
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/gestion")}>
+          📋 Gestion epp
+        </Button>
         <div className="mt-auto text-center">
           <Button variant="danger" className="w-100 mt-2 rounded-pill" onClick={logout}>
             🔒 Cerrar sesión

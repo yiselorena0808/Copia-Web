@@ -72,7 +72,7 @@ const Login: React.FC = () => {
           <div className="d-flex justify-content-between mb-4">
             <small className="text-muted fs-6">¿Olvidaste la contraseña?</small>
             <small
-              onClick={() => navigate("/registro")}
+              onClick={() => navigate("")}
               className="text-decoration-underline text-dark fw-semibold fs-6"
               style={{ cursor: "pointer" }}
             >
