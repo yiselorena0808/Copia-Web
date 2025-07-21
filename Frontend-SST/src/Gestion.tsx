@@ -35,7 +35,7 @@ const Gestion: React.FC<Gestion1> = ({ onSubmit }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:1111/presidentes", {
+      const response = await fetch("http://localhost:3333/crearGestion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre,apellido,cedula,cargo,productos,cantidad,importancia }),

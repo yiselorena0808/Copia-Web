@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Bienvenida from './Bienvenida';
 
 const Navba: React.FC = () => {
   const navigate = useNavigate();
@@ -44,22 +45,20 @@ const Navba: React.FC = () => {
           <h5 className="fw-bold mt-2 text-info">IST SAS</h5>
         </div>
 
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav")}>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/bienvenida")}>
           🏠 Inicio
         </Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/listas")}>
           📋 Lista de chequeo
         </Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill">📊 Informes</Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill">⚙️ Gestión EPP</Button>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/reportes")}>📊 informes reportes</Button>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/listarGestiones")}>⚙️ Gestión EPP</Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/crearLudica")}
         >🎯 Actividades Lúdicas</Button>
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/blog")}
         >📚 Blog</Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill">👤 Administrar usuarios</Button>
-        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/gestion")}>
-          📋 Gestion epp
-        </Button>
+        <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/listarUsuarios")}>👤 Administrar usuarios</Button>
+
         <div className="mt-auto text-center">
           <Button variant="danger" className="w-100 mt-2 rounded-pill" onClick={logout}>
             🔒 Cerrar sesión

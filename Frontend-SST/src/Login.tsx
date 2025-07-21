@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   const Enviar = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const res = await fetch(`http://localhost:7000/login`, {
+    const res = await fetch(`http://localhost:3333/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo_electronico, contrasena }),
@@ -72,7 +72,7 @@ const Login: React.FC = () => {
           <div className="d-flex justify-content-between mb-4">
             <small className="text-muted fs-6">¿Olvidaste la contraseña?</small>
             <small
-              onClick={() => navigate("")}
+              onClick={() => navigate("/registro")}
               className="text-decoration-underline text-dark fw-semibold fs-6"
               style={{ cursor: "pointer" }}
             >

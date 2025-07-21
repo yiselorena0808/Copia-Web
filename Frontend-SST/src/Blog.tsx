@@ -22,7 +22,7 @@ const Blog: React.FC = () => {
 
   // Cargar publicaciones al inicio
   useEffect(() => {
-    fetch('http://localhost:7000/blog')
+    fetch('http://localhost:3333/blog')
       .then(res => res.json())
       .then(res => setPublicaciones(res.data || []));
   }, []);
@@ -36,7 +36,7 @@ const Blog: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const res = await fetch('http://localhost:7000/crearBlog', {
+    const res = await fetch('http://localhost:3333/crearBlog', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

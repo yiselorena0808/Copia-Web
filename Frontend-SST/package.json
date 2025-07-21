@@ -12,6 +12,7 @@
   "dependencies": {
     "@adonisjs/hash": "^9.1.1",
     "bootstrap": "^5.3.7",
+    "jspdf": "^3.0.1",
     "lucide-react": "^0.511.0",
     "pg": "^8.16.0",
     "react": "^19.1.0",

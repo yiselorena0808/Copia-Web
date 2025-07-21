@@ -20,7 +20,7 @@ const RegistrarActividadLudica: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:7000/crearLudica', {
+    const response = await fetch('http://localhost:3333/crearLudica', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

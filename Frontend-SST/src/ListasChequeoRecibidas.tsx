@@ -21,7 +21,7 @@ const ListasChequeoRecibidas: React.FC = () => {
 
   useEffect(() => {
     const obtenerListas = async () => {
-      const res = await fetch("http://localhost:7000/listas"); // ✅ URL correcta al backend
+      const res = await fetch("http://localhost:3333/listas");
       const data = await res.json();
       setListas(data.mensaje);
     };
