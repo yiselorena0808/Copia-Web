@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   const Enviar = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const res = await fetch(`http://localhost:3333/login`, {
+    const res = await fetch(`http://localhost:56995/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo_electronico, contrasena }),
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
     const data = await res.json();
 
     if (data.mensaje == "bienvenido") {
-      localStorage.setItem("nombre_completo", data.nombre);
+      localStorage.setItem("nombre", data.nombre);
       localStorage.setItem("correo", data.correo);
       localStorage.setItem("auth", "true");
       navigate("/nav", { replace: true });

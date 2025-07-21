@@ -11,7 +11,6 @@ const Registro: React.FC = () => {
   const [cargo, setCargo] = useState("");
   const [contrasena, setContrasena] = useState("");
   const [confirmacion, setConfirmacion] = useState("");
-
   const registrar = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -20,7 +19,7 @@ const Registro: React.FC = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:3333/registro", {
+    const res = await fetch("http://localhost:56995/registro", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -30,6 +29,7 @@ const Registro: React.FC = () => {
         correo_electronico: correoElectronico,
         cargo,
         contrasena,
+        confirmacion
       }),
     });
 
@@ -37,7 +37,7 @@ const Registro: React.FC = () => {
 
     if (data.mensaje == 'Registro correcto') {
       alert("Registro exitoso");
-      navigate("/nav");
+      navigate("/");
     } else {
       alert("Error en el registro");
     }
