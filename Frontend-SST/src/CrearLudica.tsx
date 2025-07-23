@@ -3,43 +3,50 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 const RegistrarActividadLudica: React.FC = () => {
   const [formData, setFormData] = useState({
+    id_usuario: 0,
     nombre_usuario: '',
-    nombre_actividad: '',
-    fecha_actividad: '',
+    titulo: '',
+    fecha_Actividad: '',
     descripcion: '',
-    imagen_video: '',
-    archivo_adjunto: '',
+    imagen: '',
+    archivo: '',
   });
 
   const [mensaje, setMensaje] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3333/crearLudica', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-
-    const result = await response.json();
-    setMensaje(result.mensaje);
-
-    if (result.data) {
-      setFormData({
-        nombre_usuario: '',
-        nombre_actividad: '',
-        fecha_actividad: '',
-        descripcion: '',
-        imagen_video: '',
-        archivo_adjunto: '',
+    try {
+      const response = await fetch('http://localhost:3333/crearBlog', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+
+      const result = await response.json();
+      setMensaje(result.msj || result.error);
+
+      if (result.datos) {
+        setFormData({
+          id_usuario: 0,
+          nombre_usuario: '',
+          titulo: '',
+          fecha_Actividad: '',
+          descripcion: '',
+          imagen: '',
+          archivo: '',
+        });
+      }
+    } catch (error: any) {
+      setMensaje("Error al enviar la actividad.");
     }
   };
 
@@ -52,6 +59,16 @@ const RegistrarActividadLudica: React.FC = () => {
 
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
+            <Form.Label><strong>Id usuario:</strong></Form.Label>
+            <Form.Control
+              type="number"
+              name="id_usuario"
+              value={formData.id_usuario}
+              onChange={handleChange}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
             <Form.Label><strong>Nombre Usuario:</strong></Form.Label>
             <Form.Control
               type="text"
@@ -62,11 +79,11 @@ const RegistrarActividadLudica: React.FC = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label><strong>Nombre de la Actividad:</strong></Form.Label>
+            <Form.Label><strong>Título de la Actividad:</strong></Form.Label>
             <Form.Control
               type="text"
-              name="nombre_actividad"
-              value={formData.nombre_actividad}
+              name="titulo"
+              value={formData.titulo}
               onChange={handleChange}
             />
           </Form.Group>
@@ -75,8 +92,8 @@ const RegistrarActividadLudica: React.FC = () => {
             <Form.Label><strong>Fecha de la Actividad:</strong></Form.Label>
             <Form.Control
               type="date"
-              name="fecha_actividad"
-              value={formData.fecha_actividad}
+              name="fecha_Actividad"
+              value={formData.fecha_Actividad}
               onChange={handleChange}
             />
           </Form.Group>
@@ -93,23 +110,21 @@ const RegistrarActividadLudica: React.FC = () => {
           </Form.Group>
 
           <Form.Group className="mb-3">
-            <Form.Label><strong>Subir imagen o video:</strong></Form.Label>
+            <Form.Label><strong>Subir imagen o video (URL o nombre de archivo):</strong></Form.Label>
             <Form.Control
               type="text"
-              name="imagen_video"
-              placeholder="URL o nombre de archivo"
-              value={formData.imagen_video}
+              name="imagen"
+              value={formData.imagen}
               onChange={handleChange}
             />
           </Form.Group>
 
           <Form.Group className="mb-4">
-            <Form.Label><strong>Subir archivo:</strong></Form.Label>
+            <Form.Label><strong>Subir archivo (URL o nombre de archivo):</strong></Form.Label>
             <Form.Control
               type="text"
-              name="archivo_adjunto"
-              placeholder="URL o nombre de archivo"
-              value={formData.archivo_adjunto}
+              name="archivo"
+              value={formData.archivo}
               onChange={handleChange}
             />
           </Form.Group>

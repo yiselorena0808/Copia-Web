@@ -10,6 +10,8 @@ interface Gestion1 {
     productos: string;
     cantidad: number;
     importancia: string;
+    estado:string;
+    fecha_creacion:string
   }) => void;
 }
 

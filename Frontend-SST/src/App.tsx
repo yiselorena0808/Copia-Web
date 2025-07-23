@@ -21,14 +21,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/registro" element={<Registro />} />
-         <Route path="/listarUsuarios" element={<AdmUsuarios></AdmUsuarios>} />
-    
+
         <Route path="/nav" element={<Navba />}>
         <Route path="bienvenida" element={<Bienvenida></Bienvenida>}></Route>
           <Route path="listas" element={<ListasChequeoRecibidas />} />
           <Route path="lector" element={<LectorListaChequeo />} />
-          <Route path="crearLudica" element={<RegistrarActividadLudica/>} />
+          <Route path="crearLudica" element={<RegistrarActividadLudica></RegistrarActividadLudica>} />
           <Route path="blog" element={<Blog/>} />
+          <Route path="listarUsuarios" element={<AdmUsuarios></AdmUsuarios>} />
           <Route path="gestion" element={<Gestion onSubmit={(datos) => console.log("Datos enviados:", datos)} />} ></Route>
             <Route path="detalleGestion" element={<DetalleGestion></DetalleGestion>} />
             <Route path="reportes" element={<ListasReportes></ListasReportes>} />

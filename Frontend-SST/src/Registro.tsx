@@ -19,28 +19,30 @@ const Registro: React.FC = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:56995/registro", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nombre,
-        apellido,
-        nombre_usuario: nombreUsuario,
-        correo_electronico: correoElectronico,
-        cargo,
-        contrasena,
-        confirmacion
-      }),
-    });
+    const res = await fetch("http://localhost:3333/register", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    nombre,
+    apellido,
+    nombre_usuario: nombreUsuario,
+    correo_electronico: correoElectronico,
+    cargo,
+    contrasena,
+    confirmacion,
+  }),
+});
 
-    const data = await res.json();
+console.log("Status:", res.status); 
+const data = await res.json();
+console.log("Respuesta JSON:", data);
+if (data.mensaje === "Registro correcto") {
+  alert("Registro exitoso");
+  navigate("/");
+} else {
+ alert("Error en el registro: " + (data.mensaje || JSON.stringify(data)));
 
-    if (data.mensaje == 'Registro correcto') {
-      alert("Registro exitoso");
-      navigate("/");
-    } else {
-      alert("Error en el registro");
-    }
+}
   };
 
   return (

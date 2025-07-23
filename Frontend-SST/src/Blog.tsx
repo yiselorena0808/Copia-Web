@@ -22,7 +22,7 @@ const Blog: React.FC = () => {
 
   // Cargar publicaciones al inicio
   useEffect(() => {
-    fetch('http://localhost:3333/blog')
+    fetch('http://localhost:3333/listarBlog')
       .then(res => res.json())
       .then(res => setPublicaciones(res.data || []));
   }, []);
@@ -43,7 +43,7 @@ const Blog: React.FC = () => {
     });
 
     const data = await res.json();
-    setMensaje(data.mensaje);
+    setMensaje(data.datos);
 
     if (data.data) {
       setFormData({ titulo: '', descripcion: '', imagen: '', archivo: '' });

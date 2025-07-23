@@ -20,9 +20,9 @@ const AdmUsuarios: React.FC = () => {
 
   const obtenerUsuarios = async () => {
     try {
-      const res = await fetch("http://localhost:3333/usuarios");
+      const res = await fetch("http://localhost:3333/listarUsuarios");
       const data = await res.json();
-      setUsuarios(data);
+      setUsuarios(data.datos);
     } catch (error) {
       console.error("Error al cargar usuarios:", error);
     }
@@ -32,7 +32,7 @@ const AdmUsuarios: React.FC = () => {
     if (!confirm("¿Estás seguro de eliminar este usuario?")) return;
 
     try {
-      const res = await fetch(`http://localhost:3333/usuarios/${id}`, {
+      const res = await fetch(`http://localhost:3333/eliminarUsuario/${id}`, {
         method: "DELETE",
       });
       const data = await res.json();
@@ -45,7 +45,7 @@ const AdmUsuarios: React.FC = () => {
 
   const actualizarUsuario = async (usuario: Usuario) => {
     try {
-      const res = await fetch(`http://localhost:3333/usuarios/${usuario.id}`, {
+      const res = await fetch(`http://localhost:3333/actualizarUsuario/${usuario.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(usuario),
@@ -95,7 +95,6 @@ const AdmUsuarios: React.FC = () => {
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Cédula</th>
             <th>Usuario</th>
             <th>Correo</th>
             <th>Cargo</th>
@@ -108,7 +107,6 @@ const AdmUsuarios: React.FC = () => {
               <td>{u.id}</td>
               <td>{u.nombre}</td>
               <td>{u.apellido}</td>
-              <td>{u.cedula}</td>
               <td>{u.nombre_usuario}</td>
               <td>{u.correo_electronico}</td>
               <td>{u.cargo}</td>

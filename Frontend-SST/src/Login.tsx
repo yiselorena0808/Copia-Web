@@ -9,7 +9,7 @@ const Login: React.FC = () => {
   const Enviar = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const res = await fetch(`http://localhost:56995/login`, {
+    const res = await fetch(`http://localhost:3333/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo_electronico, contrasena }),

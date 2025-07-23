@@ -70,16 +70,6 @@ const ActualizarUsuarioModal: React.FC<Props> = ({ usuario, onClose, onUpdate })
             />
           </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Cédula</Form.Label>
-            <Form.Control
-              type="number"
-              name="cedula"
-              value={formData.cedula}
-              onChange={handleChange}
-              required
-            />
-          </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label>Nombre</Form.Label>

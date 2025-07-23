@@ -21,9 +21,9 @@ const ListasChequeoRecibidas: React.FC = () => {
 
   useEffect(() => {
     const obtenerListas = async () => {
-      const res = await fetch("http://localhost:3333/listas");
+      const res = await fetch("http://localhost:3333/listarListasChequeo");
       const data = await res.json();
-      setListas(data.mensaje);
+      setListas(data.datos);
     };
 
     obtenerListas();

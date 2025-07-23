@@ -24,9 +24,9 @@ const ListarGestiones: React.FC = () => {
 
   const obtenerListas = async () => {
     try {
-      const res = await fetch("http://localhost:3333/listaGestiones"); 
+      const res = await fetch("http://localhost:3333/listarGestiones"); 
       const data = await res.json();
-      setListas(data.data);
+      setListas(data.datos);
     } catch (error) {
       console.error("Error al obtener gestiones:", error);
     }
