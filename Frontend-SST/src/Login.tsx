@@ -21,7 +21,7 @@ const Login: React.FC = () => {
       localStorage.setItem("nombre", data.nombre);
       localStorage.setItem("correo", data.correo);
       localStorage.setItem("auth", "true");
-      navigate("/nav", { replace: true });
+      navigate("/nav/bienvenida", { replace: true });
       window.location.reload();
 
     } else {

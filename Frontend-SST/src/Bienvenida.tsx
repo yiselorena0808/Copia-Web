@@ -5,7 +5,7 @@ import "./Bienvenida.css";
 
 const Bienvenida: React.FC = () => {
   return (
-    <Container fluid className="bienvenida-bg py-5 text-white">
+    <Container fluid className="bienvenida-bg py-5 text-black">
       <Container>
         <Row className="justify-content-center text-center mb-5">
           <Col lg={8}>
@@ -18,7 +18,7 @@ const Bienvenida: React.FC = () => {
               <iframe
                 width="100%"
                 height="400"
-                src="https://youtu.be/WFeuK53MPyU" 
+                src="https://www.youtube.com/watch?v=WFeuK53MPyU" 
                 title="Video de presentación"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

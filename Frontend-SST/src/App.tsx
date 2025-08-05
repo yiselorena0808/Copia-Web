@@ -24,7 +24,7 @@ function App() {
 
         <Route path="/nav" element={<Navba />}>
         <Route path="bienvenida" element={<Bienvenida></Bienvenida>}></Route>
-          <Route path="listas" element={<ListasChequeoRecibidas />} />
+          <Route path="listas" element={<ListasChequeoRecibidas></ListasChequeoRecibidas>} />
           <Route path="lector" element={<LectorListaChequeo />} />
           <Route path="crearLudica" element={<RegistrarActividadLudica></RegistrarActividadLudica>} />
           <Route path="blog" element={<Blog/>} />

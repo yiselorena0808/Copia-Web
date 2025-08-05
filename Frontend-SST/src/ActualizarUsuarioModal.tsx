@@ -5,12 +5,12 @@ interface Usuario {
   id: number;
   nombre: string;
   apellido: string;
-  cedula: number;              // si lo usas, mantenlo
+  cedula: number;            
   nombre_usuario: string;
   correo_electronico: string;
   cargo: string;
-  contrasena: string;          // nueva propiedad
-  fecha_registro: string;      // nueva propiedad, formato ISO string o similar
+  contrasena: string;          
+  fecha_registro: string;      
 }
 
 interface Props {
@@ -32,14 +32,12 @@ const ActualizarUsuarioModal: React.FC<Props> = ({ usuario, onClose, onUpdate })
 
     setFormData(prev => ({
       ...prev,
-      [name]: name === "cedula" ? Number(value) : value,  // si cedula es número
+      [name]: name === "cedula" ? Number(value) : value,  
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Validar campos obligatorios, puedes ajustar según necesites
     if (!formData.nombre || !formData.apellido || !formData.nombre_usuario || !formData.correo_electronico || !formData.cargo) {
       setMensaje("Todos los campos obligatorios deben estar completos.");
       return;

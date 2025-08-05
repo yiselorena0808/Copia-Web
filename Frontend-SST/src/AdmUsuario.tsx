@@ -6,11 +6,10 @@ interface Usuario {
   id: number;
   nombre: string;
   apellido: string;
-  cedula: number;
   nombre_usuario: string;
   correo_electronico: string;
   cargo: string;
-  contrasena?: string; // opcional, para no obligar a cambiarla
+  contrasena?: string; 
 }
 
 const AdmUsuarios: React.FC = () => {

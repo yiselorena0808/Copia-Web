@@ -2,21 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Bienvenida from './Bienvenida';
 
 const Navba: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [nombre, setNombre] = useState("");
 
-  const ocultarNavbar = location.pathname === "/" || location.pathname === "/registro";
+  const ocultarNavbar = location.pathname === "/" || location.pathname === "/Registro";
   if (ocultarNavbar) {
     return null;
   }
 
   useEffect(() => {
     const auth = localStorage.getItem("auth");
-    const nombreGuardado = localStorage.getItem("nombre_completo");
+    const nombreGuardado = localStorage.getItem("nombre");
 
     if (!auth) {
       navigate("/");
@@ -42,7 +41,7 @@ const Navba: React.FC = () => {
             alt="Logo"
             style={{ width: "70px", borderRadius: "50%" }}
           />
-          <h5 className="fw-bold mt-2 text-info">IST SAS</h5>
+          <h5 className="fw-bold mt-2 text-info">Hermanos y Asociados</h5>
         </div>
 
         <Button variant="outline-light" className="w-100 mb-2 rounded-pill" onClick={() => navigate("/nav/bienvenida")}>
